@@ -20,7 +20,7 @@ export class CharactersService {
 
   /**
    * Retrieve a list of characters based on filters parameters
-   * @param filter
+   * @param filter The character filter
    */
   retrieveCharacters(filter: CharacterFilter): Promise<PaginatedResponse<Character>> {
     let params = filter.getParams()

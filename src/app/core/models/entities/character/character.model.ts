@@ -12,10 +12,11 @@ export class Character {
     mass: number
     name: string
     skin_color: string
-    created: Date
-    edited: Date
     species: Array<string>
     starships: Array<string>
     vehicles: Array<string>
-
+    
+    created: Date
+    edited: Date
+    url: string
 }
