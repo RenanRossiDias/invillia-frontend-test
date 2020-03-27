@@ -20,6 +20,11 @@ export default class Starship {
     edited: Date
     url: string
 
+    constructor()
+{
+    this.films = []
+    this.pilots = []
+}
     get id() {
         const splitted = this.url.split('/')
         const id = splitted[splitted.length - 2]

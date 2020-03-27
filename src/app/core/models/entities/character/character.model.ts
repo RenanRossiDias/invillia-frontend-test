@@ -20,6 +20,14 @@ export class Character {
     edited: Date
     url: string
 
+    constructor() {
+        this.films = []
+        this.homeworld = []
+        this.species = []
+        this.starships = []
+        this.vehicles = []
+    }
+
 
     get id() {
         const splitted = this.url.split('/')

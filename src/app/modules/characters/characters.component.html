@@ -1,4 +1,5 @@
 <section>
+    <ivl-swasky></ivl-swasky>
     <ivl-swatitle title="Characters" subtitle={{hurryUpMessages[currentHurryUpMessageIndex]}}></ivl-swatitle>
     <mat-card>
         <mat-card-header>
@@ -11,14 +12,15 @@
 
         </mat-card-header>
         <mat-card-content>
+            <ivl-swaloader [loading]="loadingCharacters"></ivl-swaloader>
             <mat-list>
                 <div *ngFor="let character of characters">
-                    <a [routerLink]="[character.id]">
+                    <a id="detail-character-{{character.id}}-link" [routerLink]="[character.id]">
                         <ivl-resumed-character-info [character]="character"></ivl-resumed-character-info>
                     </a>
                 </div>
             </mat-list>
         </mat-card-content>
-        <button (click)="loadNextPage()" mat-stroked-button color="primary">See more</button>
+        <button id="load-next-page" (click)="loadNextPage()" [disabled]="loadingCharacters" mat-stroked-button color="primary">See more</button>
     </mat-card>
 </section>

@@ -12,12 +12,13 @@ import { Character } from 'src/app/core/models/entities/character/character.mode
 export class CharactersComponent implements OnInit {
 
   constructor(private messagesService: MessagesService, private charactersService: CharactersService) {
-
+    this.loadingCharacters = false
   }
 
   private currentHurryUpMessageIndex: number = 0
   private hurryUpMessages: Array<string> = []
   private characters: Array<Character> = []
+  private loadingCharacters: boolean
   currentPage: number = 1
 
 
@@ -29,10 +30,11 @@ export class CharactersComponent implements OnInit {
   private async retrieveCharacters(currentPage: number) {
     let filter = new CharacterFilter()
     filter.page = currentPage
-
+    this.loadingCharacters = true
     let characters = await this.charactersService.retrieveCharacters(filter)
     characters.results = characters.results.map(c => Object.assign(new Character, c))
     this.characters = this.characters.concat(characters.results)
+    this.loadingCharacters = false
   }
 
   private async loadNextPage() {

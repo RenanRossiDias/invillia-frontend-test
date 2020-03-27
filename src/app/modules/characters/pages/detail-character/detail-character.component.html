@@ -7,6 +7,7 @@
 
         </mat-card-header>
         <mat-card-content>
+            <ivl-swaloader [loading]="loadingCharacter"></ivl-swaloader>
             <mat-list>
                 <mat-list-item>Gender: {{character.gender}} <i class="fas" [ngClass]="character.genderSymbol"></i></mat-list-item>
                 <mat-list-item>Height: {{character.height}} cm</mat-list-item>
@@ -21,9 +22,9 @@
                     <mat-expansion-panel-header>
                         <mat-panel-title>
                             <i class="fas fa-rocket"></i>
-                            Starships: {{starships.length}} 
+                            Starships: {{character.starships.length}} 
                         </mat-panel-title>
-                        
+                        <ivl-swaloader [loading]="loadingStarships"></ivl-swaloader>
                     </mat-expansion-panel-header>
                     <mat-list>
                             <ivl-resumed-starship-info *ngFor="let starship of starships" [starship]=starship></ivl-resumed-starship-info>
