@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MessagesService } from 'src/app/core/services/messages.service';
+import { CharactersService } from 'src/app/core/services/characters.service';
 
 @Component({
   selector: 'app-characters',
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CharactersComponent implements OnInit {
 
-  constructor() { }
+  constructor(private messagesService : MessagesService,  private charactersService: CharactersService) { }
+
+  private _chooseFastWarningMessages = []
+
 
   ngOnInit() {
   }
