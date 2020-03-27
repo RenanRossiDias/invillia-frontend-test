@@ -1,5 +1,21 @@
 <section>
     <h1>Characters</h1>
-    <p>C'mon, don't let the force overtake you, pick up a character and learn everything about him before Vader gets
-        here and get us killed!</p>
+    <p>{{hurryUpMessages[currentHurryUpMessageIndex]}}</p>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>
+                Choose a character
+            </mat-card-title>
+            <mat-card-subtitle>
+                Click at any of them to see detailed information
+            </mat-card-subtitle>
+
+        </mat-card-header>
+        <mat-card-content>
+            <mat-list>
+                <ivl-resumed-character-info *ngFor="let character of characters" [character]="character">
+                </ivl-resumed-character-info>
+            </mat-list>
+        </mat-card-content>
+    </mat-card>
 </section>

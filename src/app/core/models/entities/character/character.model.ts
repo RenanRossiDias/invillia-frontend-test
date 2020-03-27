@@ -19,4 +19,12 @@ export class Character {
     created: Date
     edited: Date
     url: string
+
+    
+    getId(){
+    const splitted = this.url.split('/')
+    const id = splitted[splitted.length - 2]
+    return id
+    }
+
 }
