@@ -5,11 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './modules/home/home.component';
+import { CharactersComponent } from './modules/characters/characters.component';
+import { DetailCharacterComponent } from './modules/characters/pages/detail-character/detail-character.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    CharactersComponent,
+    DetailCharacterComponent
   ],
   imports: [
     BrowserModule,
