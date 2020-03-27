@@ -17,33 +17,29 @@ export class DetailCharacterComponent implements OnInit {
     this.starships = []
     this.characterId = +this.route.snapshot.params.id
     this.loadingCharacter = false
-    this.loadingStarships = false
   }
 
   private characterId: number
   private character: Character
   private starships: Array<Starship>
-  private loadingStarships: boolean
   private loadingCharacter: boolean
 
   async ngOnInit() {
+    this.loadingCharacter = true
     await this.retrieveCharacter(this.characterId)
     if (this.character.starships.length) await this.retrieveStarships()
-  }
-
-  async retrieveCharacter(characterId: number) {
-    this.loadingCharacter = true
-    this.character = await this.charactersService.retrieveCharacter(characterId)
-    this.character = Object.assign(new Character, this.character)
     this.loadingCharacter = false
   }
 
+  async retrieveCharacter(characterId: number) {
+    this.character = await this.charactersService.retrieveCharacter(characterId)
+    this.character = Object.assign(new Character, this.character)
+  }
+
   async retrieveStarships() {
-    this.loadingStarships = true
     this.starships = await Promise.all(
       this.character.starships.map(starshipUri =>
         this.starshipsService.retrieveStarship(starshipUri)))
-    this.loadingStarships = false
   }
 
 }
