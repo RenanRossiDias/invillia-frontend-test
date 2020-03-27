@@ -18,7 +18,7 @@ export class CharactersComponent implements OnInit {
   private currentHurryUpMessageIndex: number = 0
   private hurryUpMessages: Array<string> = []
   private characters: Array<Character> = []
-  private currentPage: number = 1
+  currentPage: number = 1
 
 
   ngOnInit() {
@@ -33,6 +33,17 @@ export class CharactersComponent implements OnInit {
     let characters = await this.charactersService.retrieveCharacters(filter)
     characters.results = characters.results.map(c => Object.assign(new Character, c))
     this.characters = this.characters.concat(characters.results)
+  }
+
+  private async loadNextPage() {
+    this.currentPage++
+    try {
+      await this.retrieveCharacters(this.currentPage)
+    } catch (error) {
+      this.currentPage--
+    }
+
+
   }
 
   private async loadHurryUpMessages() {
@@ -50,8 +61,6 @@ export class CharactersComponent implements OnInit {
 
     if (currentHurryUpMessageIndex < hurryUpMessages.length - 1)
       setTimeout(() => this.cycleHurryUpMessages(++currentHurryUpMessageIndex, hurryUpMessages), time);
-
-
   }
 
 }
