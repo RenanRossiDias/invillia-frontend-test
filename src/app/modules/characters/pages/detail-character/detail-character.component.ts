@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CharactersService } from 'src/app/core/services/characters.service';
 import { ActivatedRoute } from '@angular/router';
 import { Character } from 'src/app/core/models/entities/character/character.model';
+import Starship from 'src/app/core/models/entities/starship/starship.model';
+import { StarshipsService } from 'src/app/core/services/starships.service';
 
 @Component({
   selector: 'app-detail-character',
@@ -10,20 +12,30 @@ import { Character } from 'src/app/core/models/entities/character/character.mode
 })
 export class DetailCharacterComponent implements OnInit {
 
-  constructor(private route : ActivatedRoute, private charactersService :CharactersService) { 
+  constructor(private route: ActivatedRoute, private charactersService: CharactersService, private starshipsService: StarshipsService) {
     this.character = new Character()
+    this.starships = []
     this.characterId = +this.route.snapshot.params.id
   }
 
   private characterId: number
   private character: Character
+  private starships: Array<Starship>
 
-  ngOnInit() {
-    this.retrieveCharacter(this.characterId)
+  async ngOnInit() {
+    await this.retrieveCharacter(this.characterId)
+    await this.retrieveStarships()
   }
 
-  async retrieveCharacter(characterId: number){
+  async retrieveCharacter(characterId: number) {
     this.character = await this.charactersService.retrieveCharacter(characterId)
+    this.character = Object.assign(new Character, this.character)
+  }
+
+  async retrieveStarships() {
+    this.starships = await Promise.all(
+      this.character.starships.map(starshipUri =>
+        this.starshipsService.retrieveStarship(starshipUri)))
   }
 
 }

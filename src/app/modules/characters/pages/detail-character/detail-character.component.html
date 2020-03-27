@@ -8,13 +8,28 @@
         </mat-card-header>
         <mat-card-content>
             <mat-list>
-                <mat-list-item>Gender: {{character.gender}}</mat-list-item>
+                <mat-list-item>Gender: {{character.gender}} <i class="fas" [ngClass]="character.genderSymbol"></i></mat-list-item>
                 <mat-list-item>Height: {{character.height}} cm</mat-list-item>
                 <mat-list-item>Mass: {{character.mass}}</mat-list-item>
                 <mat-list-item>Hair color: {{character.hair_color}}</mat-list-item>
                 <mat-list-item>Skin: {{character.skin_color}}</mat-list-item>
                 <mat-list-item>Eye: {{character.eye_color}}</mat-list-item>
             </mat-list>
+
+            <mat-accordion>
+                <mat-expansion-panel hideToggle [disabled]="starships.length == 0">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <i class="fas fa-rocket"></i>
+                            Starships: {{starships.length}} 
+                        </mat-panel-title>
+                        
+                    </mat-expansion-panel-header>
+                    <mat-list>
+                            <ivl-resumed-starship-info *ngFor="let starship of starships" [starship]=starship></ivl-resumed-starship-info>
+                    </mat-list>
+                </mat-expansion-panel>
+            </mat-accordion>
         </mat-card-content>
     </mat-card>
 </section>

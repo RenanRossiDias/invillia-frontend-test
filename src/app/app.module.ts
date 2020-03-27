@@ -45,6 +45,7 @@ import { ResumedCharacterInfoComponent } from './modules/characters/components/r
 import { RouterModule } from '@angular/router';
 import { SwatitleComponent } from './modules/shared/swatitle/swatitle/swatitle.component';
 import { NotFoundComponent } from './modules/not-found/not-found/not-found.component';
+import { ResumedStarshipInfoComponent } from './modules/shared/resumed-starship-info/resumed-starship-info.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { NotFoundComponent } from './modules/not-found/not-found/not-found.compo
     DetailCharacterComponent,
     ResumedCharacterInfoComponent,
     SwatitleComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ResumedStarshipInfoComponent
   ],
   imports: [
     RouterModule,

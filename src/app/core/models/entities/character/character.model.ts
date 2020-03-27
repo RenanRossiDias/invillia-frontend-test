@@ -15,20 +15,31 @@ export class Character {
     species: Array<string>
     starships: Array<string>
     vehicles: Array<string>
-    
+
     created: Date
     edited: Date
     url: string
 
-    
-    get id(){
-    const splitted = this.url.split('/')
-    const id = splitted[splitted.length - 2]
-    return id
+
+    get id() {
+        const splitted = this.url.split('/')
+        const id = splitted[splitted.length - 2]
+        return id
     }
 
-    get picture(){
+    get picture() {
         return `https://starwars-visualguide.com/assets/img/characters/${this.id}.jpg`
+    }
+
+    get genderSymbol(): string {
+        switch (this.gender) {
+            case Gender.Female:
+                return 'fa-venus'
+            case Gender.Male:
+                return 'fa-mars'
+            default:
+                return 'fa-genderless'
+        }
     }
 
 }
