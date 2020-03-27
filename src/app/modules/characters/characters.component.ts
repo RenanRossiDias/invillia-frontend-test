@@ -31,8 +31,8 @@ export class CharactersComponent implements OnInit {
     filter.page = currentPage
 
     let characters = await this.charactersService.retrieveCharacters(filter)
+    characters.results = characters.results.map(c => Object.assign(new Character, c))
     this.characters = this.characters.concat(characters.results)
-    console.log(this.characters)
   }
 
   private async loadHurryUpMessages() {
@@ -47,7 +47,6 @@ export class CharactersComponent implements OnInit {
   private cycleHurryUpMessages(currentHurryUpMessageIndex: number, hurryUpMessages: Array<string>) {
     this.currentHurryUpMessageIndex = currentHurryUpMessageIndex
     const time = 15000
-    console.log(currentHurryUpMessageIndex, hurryUpMessages)
 
     if (currentHurryUpMessageIndex < hurryUpMessages.length - 1)
       setTimeout(() => this.cycleHurryUpMessages(++currentHurryUpMessageIndex, hurryUpMessages), time);

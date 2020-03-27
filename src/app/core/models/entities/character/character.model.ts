@@ -21,10 +21,14 @@ export class Character {
     url: string
 
     
-    getId(){
+    get id(){
     const splitted = this.url.split('/')
     const id = splitted[splitted.length - 2]
     return id
+    }
+
+    get picture(){
+        return `https://starwars-visualguide.com/assets/img/characters/${this.id}.jpg`
     }
 
 }

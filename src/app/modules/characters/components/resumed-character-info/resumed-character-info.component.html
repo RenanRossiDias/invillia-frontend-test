@@ -1,8 +1,8 @@
-<mat-list-item>
-    <picture>
-        <img src="{{'https://starwars-visualguide.com/assets/img/characters/' + character.getId() + '.jpg'}}" >
-    </picture>
-    image{{character.getId()}}
+<mat-list-item matRipple [matRippleColor]="primary">
+    <!-- <picture>
+        <img src="{{character.picture}}" >
+    </picture> -->
+    <div mat-card-avatar [ngStyle]="{'background-image': 'url(' + character.picture + ')', 'background-size': 'cover'}"></div>
     <div class="mat-line">{{character.name}}</div>
     <div class="mat-line"><i class="fas fa-rocket"></i> {{character.starships.length + " ship(s)"   }}</div>
     <mat-divider></mat-divider>

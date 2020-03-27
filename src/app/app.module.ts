@@ -11,7 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 //Angular Material Components
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatCheckboxModule} from '@angular/material';
+import {MatCheckboxModule, MatRippleModule} from '@angular/material';
 import {MatButtonModule} from '@angular/material';
 import {MatInputModule} from '@angular/material/input';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
@@ -42,6 +42,9 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { ResumedCharacterInfoComponent } from './modules/characters/components/resumed-character-info/resumed-character-info.component';
+import { RouterModule } from '@angular/router';
+import { SwatitleComponent } from './modules/shared/swatitle/swatitle/swatitle.component';
+import { NotFoundComponent } from './modules/not-found/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -49,9 +52,12 @@ import { ResumedCharacterInfoComponent } from './modules/characters/components/r
     HomeComponent,
     CharactersComponent,
     DetailCharacterComponent,
-    ResumedCharacterInfoComponent
+    ResumedCharacterInfoComponent,
+    SwatitleComponent,
+    NotFoundComponent
   ],
   imports: [
+    RouterModule,
     HttpClientModule,
     AppRoutingModule,
     ToastrModule.forRoot(),
@@ -87,7 +93,8 @@ import { ResumedCharacterInfoComponent } from './modules/characters/components/r
     MatSnackBarModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatRippleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
