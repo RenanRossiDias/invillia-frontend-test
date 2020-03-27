@@ -1,36 +1,53 @@
-<section>
+<section class="container">
+    <ivl-swasky></ivl-swasky>
     <ivl-swatitle title="Character" subtitle=""></ivl-swatitle>
-    <mat-card>
+    <mat-card class="character-info container__content">
         <mat-card-header>
+            <div mat-card-avatar 
+            [ngStyle]="{'background-image': 'url(' + character.picture +')'}"
+            class="character-info__picture"></div>
             <mat-card-title>{{character.name}}</mat-card-title>
             <mat-card-subtitle>Birth: {{character.birth_year}}</mat-card-subtitle>
 
         </mat-card-header>
-        <mat-card-content>
-            <ivl-swaloader [loading]="loadingCharacter"></ivl-swaloader>
-            <mat-list>
-                <mat-list-item>Gender: {{character.gender}} <i class="fas" [ngClass]="character.genderSymbol"></i></mat-list-item>
-                <mat-list-item>Height: {{character.height}} cm</mat-list-item>
-                <mat-list-item>Mass: {{character.mass}}</mat-list-item>
-                <mat-list-item>Hair color: {{character.hair_color}}</mat-list-item>
-                <mat-list-item>Skin: {{character.skin_color}}</mat-list-item>
-                <mat-list-item>Eye: {{character.eye_color}}</mat-list-item>
-            </mat-list>
+        <div class="container__relative-container">
+            <mat-card-content >
+                <mat-tab-group class="container__card-content">
+                    <mat-tab label="About">
+                        <mat-list>
+                            <mat-list-item><b>Gender:</b> <span
+                                    class="character-info__list-value-text">{{character.gender}} </span><i class="fas"
+                                    [ngClass]="character.genderSymbol"></i>
+                            </mat-list-item>
+                            <mat-list-item><b> Height:</b> <span
+                                    class="character-info__list-value-text">{{character.height}}</span> cm
+                            </mat-list-item>
+                            <mat-list-item><b>Mass:</b> <span
+                                    class="character-info__list-value-text">{{character.mass}}</span></mat-list-item>
+                            <mat-list-item><b>Hair color:</b> <span
+                                    class="character-info__list-value-text">{{character.hair_color}}</span>
+                            </mat-list-item>
+                            <mat-list-item><b>Skin:</b> <span
+                                    class="character-info__list-value-text">{{character.skin_color}}</span>
+                            </mat-list-item>
+                            <mat-list-item><b>Eye:</b> <span
+                                    class="character-info__list-value-text">{{character.eye_color}}</span>
+                            </mat-list-item>
+                        </mat-list>
+                    </mat-tab>
+                    <mat-tab label="Starships: {{character.starships.length}}">
+                        <mat-list>
+                            <ivl-resumed-starship-info *ngFor="let starship of starships" [starship]=starship>
+                            </ivl-resumed-starship-info>
+                        </mat-list>
+                    </mat-tab>
+                    <ivl-swaloader [loading]="loadingStarships"></ivl-swaloader>
+                </mat-tab-group>
 
-            <mat-accordion>
-                <mat-expansion-panel hideToggle [disabled]="starships.length == 0">
-                    <mat-expansion-panel-header>
-                        <mat-panel-title>
-                            <i class="fas fa-rocket"></i>
-                            Starships: {{character.starships.length}} 
-                        </mat-panel-title>
-                        <ivl-swaloader [loading]="loadingStarships"></ivl-swaloader>
-                    </mat-expansion-panel-header>
-                    <mat-list>
-                            <ivl-resumed-starship-info *ngFor="let starship of starships" [starship]=starship></ivl-resumed-starship-info>
-                    </mat-list>
-                </mat-expansion-panel>
-            </mat-accordion>
-        </mat-card-content>
+
+
+            </mat-card-content>
+            <ivl-swaloader [loading]="loadingCharacter"></ivl-swaloader>
+        </div>
     </mat-card>
 </section>

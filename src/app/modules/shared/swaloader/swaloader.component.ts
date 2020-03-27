@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChange, SimpleChanges } from '@angular/core';
 import { MessagesService } from 'src/app/core/services/messages.service';
 
 @Component({
@@ -6,20 +6,26 @@ import { MessagesService } from 'src/app/core/services/messages.service';
   templateUrl: './swaloader.component.html',
   styleUrls: ['./swaloader.component.scss']
 })
-export class SwaloaderComponent implements OnInit {
+export class SwaloaderComponent implements OnInit, OnChanges {
 
-  constructor(private messagesService : MessagesService) { 
+  constructor(private messagesService: MessagesService) {
     this.currentLoadingMessageIndex = 0
     this.loadingMessages = []
   }
 
-  private loadingMessages: Array<string>
-  private currentLoadingMessageIndex : number
+  private emit
 
-  @Input()loading: any
+  private loadingMessages: Array<string>
+  private currentLoadingMessageIndex: number
+
+  @Input() loading: any
   ngOnInit() {
-    this.displayLoadingMessages()
-    
+  }
+
+  ngOnChanges(changes: SimpleChanges){
+    if(changes.loading.currentValue && !changes.loading.previousValue){
+      this.displayLoadingMessages()
+    }
   }
 
   private async loadLoadingMessages() {
@@ -35,8 +41,11 @@ export class SwaloaderComponent implements OnInit {
     this.currentLoadingMessageIndex = currentLoadingMessageIndex
     const time = 3500
 
-    if (currentLoadingMessageIndex < loadingMessages.length - 1)
+    if (this.loading && currentLoadingMessageIndex < loadingMessages.length - 1)
       setTimeout(() => this.cycleHurryUpMessages(++currentLoadingMessageIndex, loadingMessages), time);
+    else {
+      this.currentLoadingMessageIndex = 0
+    }
   }
 
 }
