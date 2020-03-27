@@ -1,5 +1,9 @@
-<div class="">
-    <div *ngIf="loading">
-    <i class="fab fa-galactic-republic fa-spin"></i>
+<div *ngIf="loading" class="loader">
+    <div class="loader__container">
+        <i class="fab fa-galactic-republic fa-spin"></i>
+        <div class="loader__text">
+            <p>{{loadingMessages[currentLoadingMessageIndex]}}</p>
+        </div>
     </div>
+
 </div>

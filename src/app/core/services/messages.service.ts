@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import hurryUpMessages from '../../../assets/json/hurryUpMessages.json';
+import loadingMessages from '../../../assets/json/loadingMessages.json'
 
 @Injectable({
   providedIn: 'root'
@@ -18,4 +19,11 @@ export class MessagesService {
       resolve(messages)
     })
   }
+
+  retrieveLoadingMessages(): Promise<Array<string>> {
+    const messages = loadingMessages.messages
+    return new Promise((resolve) => {
+      resolve(messages)
+    })
+  } 
 }
