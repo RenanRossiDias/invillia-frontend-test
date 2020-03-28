@@ -1,0 +1,32 @@
+<section class="container">
+    <ivl-swasky></ivl-swasky>
+    <ivl-swatitle title="Characters" subtitle={{hurryUpMessages[currentHurryUpMessageIndex]}}></ivl-swatitle>
+    <mat-card class="container__content">
+        <mat-card-header>
+            <mat-card-title>
+                Choose a character
+            </mat-card-title>
+            <mat-card-subtitle>
+                Click at any of them to see detailed information
+            </mat-card-subtitle>
+
+        </mat-card-header>
+        <div class="container__relative-container">
+            <mat-card-content class="container__card-content">
+                <mat-list>
+                    <div *ngFor="let character of characters">
+                        <a id="detail-character-{{character.id}}-link" [routerLink]="[character.id]" class="container__link">
+                            <ivl-resumed-character-info [character]="character"></ivl-resumed-character-info>
+                        </a>
+                    </div>
+                </mat-list>
+            </mat-card-content>
+            <ivl-swaloader [loading]="loadingCharacters"></ivl-swaloader>
+
+        </div>
+        <button id="load-next-page" (click)="loadNextPage()" [disabled]="loadingCharacters || totalCharacters == characters.length" mat-stroked-button color="primary">
+            <span *ngIf="remainingCharacters">See other {{remainingCharacters}}</span> 
+            <span *ngIf="remainingCharacters == 0">There's no one left to see</span>
+        </button>
+    </mat-card>
+</section>
