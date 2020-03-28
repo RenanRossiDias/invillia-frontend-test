@@ -23,6 +23,10 @@ body {
     max-height: 30vh;
     min-height: 20vh;
     overflow-y: scroll;
+    text-decoration: none;
+  }
+  &__link{
+    text-decoration: none;
   }
 }
 

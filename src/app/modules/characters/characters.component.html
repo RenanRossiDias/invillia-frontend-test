@@ -15,7 +15,7 @@
             <mat-card-content class="container__card-content">
                 <mat-list>
                     <div *ngFor="let character of characters">
-                        <a id="detail-character-{{character.id}}-link" [routerLink]="[character.id]">
+                        <a id="detail-character-{{character.id}}-link" [routerLink]="[character.id]" class="container__link">
                             <ivl-resumed-character-info [character]="character"></ivl-resumed-character-info>
                         </a>
                     </div>
@@ -24,6 +24,9 @@
             <ivl-swaloader [loading]="loadingCharacters"></ivl-swaloader>
 
         </div>
-        <button id="load-next-page" (click)="loadNextPage()" [disabled]="loadingCharacters" mat-stroked-button color="primary">See more</button>
+        <button id="load-next-page" (click)="loadNextPage()" [disabled]="loadingCharacters || totalCharacters == characters.length" mat-stroked-button color="primary">
+            <span *ngIf="remainingCharacters">See other {{remainingCharacters}}</span> 
+            <span *ngIf="remainingCharacters == 0">There's no one left to see</span>
+        </button>
     </mat-card>
 </section>

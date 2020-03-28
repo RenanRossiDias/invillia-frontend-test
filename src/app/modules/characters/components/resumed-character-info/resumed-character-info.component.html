@@ -1,6 +1,15 @@
-<mat-list-item matRipple [matRippleColor]="primary">
+<mat-list-item matRipple class="resumed-character" [matRippleColor]="primary">
     <img matListAvatar src="{{character.picture}}" alt="{{character.name}}">
-    <div class="mat-line">{{character.name}}</div>
-    <div class="mat-line"><i class="fas fa-rocket"></i> {{character.starships.length + " ship(s)"   }}</div>
+    <div mat-line>{{character.name}}</div>
+    <div mat-line>
+        <div class="row resumed-character__info">
+            
+            <div clas="col-xs-12 col-lg-6">
+                <span class="resumed-character__info--header"><i class="fas fa-rocket"></i></span>
+                
+                <span class="resumed-character__info--data">{{character.starships.length + " ship(s)"}}</span>
+            </div>
+        </div>
+    </div>
     <mat-divider></mat-divider>
 </mat-list-item>

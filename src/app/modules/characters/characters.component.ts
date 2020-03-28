@@ -13,14 +13,17 @@ export class CharactersComponent implements OnInit {
 
   constructor(private messagesService: MessagesService, private charactersService: CharactersService) {
     this.loadingCharacters = false
+    this.totalCharacters = 0
   }
 
   private currentHurryUpMessageIndex: number = 0
   private hurryUpMessages: Array<string> = []
   private characters: Array<Character> = []
+  private totalCharacters: number
+  private currentPage: number = 1
   private loadingCharacters: boolean
-  currentPage: number = 1
-
+  
+  get remainingCharacters(): number { return this.totalCharacters - this.characters.length}
 
   ngOnInit() {
     this.displayHurryUpMessages()
@@ -33,6 +36,7 @@ export class CharactersComponent implements OnInit {
     this.loadingCharacters = true
     let characters = await this.charactersService.retrieveCharacters(filter)
     characters.results = characters.results.map(c => Object.assign(new Character, c))
+    this.totalCharacters = characters.count
     this.characters = this.characters.concat(characters.results)
     this.loadingCharacters = false
   }

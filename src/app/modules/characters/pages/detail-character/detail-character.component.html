@@ -4,11 +4,11 @@
     <mat-card class="character-info container__content">
         <mat-card-header>
             <div mat-card-avatar 
+            *ngIf="character.id"
             [ngStyle]="{'background-image': 'url(' + character.picture +')'}"
             class="character-info__picture"></div>
             <mat-card-title>{{character.name}}</mat-card-title>
             <mat-card-subtitle>Birth: {{character.birth_year}}</mat-card-subtitle>
-
         </mat-card-header>
         <div class="container__relative-container">
             <mat-card-content >

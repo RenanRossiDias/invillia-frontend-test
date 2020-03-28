@@ -30,6 +30,8 @@ export class Character {
 
 
     get id() {
+        if (!this.url)
+            return ''
         const splitted = this.url.split('/')
         const id = splitted[splitted.length - 2]
         return id
