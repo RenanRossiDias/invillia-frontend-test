@@ -1,0 +1,14 @@
+/*Import only scss file*/
+@import 'bootstrap/dist/css/bootstrap-grid.min.css';
+@import '~ngx-toastr/toastr';
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+
+
+@font-face {
+    font-family: "starwarsjedi";
+    src: url('assets/font/starwars_jedi/starwarsjedi.eot');
+    src: url('assets/font/starwars_jedi/starwarsjedi.ttf') format("truetype");
+    src: url('assets/font/starwars_jedi/starwarsjedi.woff') format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }

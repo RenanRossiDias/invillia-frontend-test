@@ -1,0 +1,25 @@
+<div class="swatitle">
+    <div class="row">
+        <div class="col-xs-12 col-md-2">
+            <a id="navigate-back-link" class="d-xs-block d-md-none swatitle__navigate-back swatitle__navigate-back--small-screen" [routerLink]="'..'">
+                <i class="fas fa-chevron-left"></i>
+            </a>
+            <button [routerLink]="'..'" mat-raised-button  id="navigate-back-button" color="primary" class="d-none d-md-block swatitle__navigate-back swatitle__navigate-back--large-screen">Back</button>
+        </div>
+        <div class="col-xs-12 col-md-8">
+            <div>
+                <h1 class="swatitle__h1">{{title}}</h1>
+                <p>{{subtitle}}</p>
+            </div>
+            <div>
+                <div class="swatitle__main-icon">
+                    <i class="fab fa-galactic-republic"></i>
+                </div>
+                <sub>Galactic republic citizen database</sub>
+            </div>
+        </div>
+       
+    </div>
+
+
+</div>

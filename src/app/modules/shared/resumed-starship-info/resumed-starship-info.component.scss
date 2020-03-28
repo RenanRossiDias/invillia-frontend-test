@@ -1,0 +1,27 @@
+.resumed-starship {
+  display: block;
+  &__title {
+    font-size: 20px;
+    font-family: "starwarsjedi";
+    outline: none;
+    border: none;
+    text-transform: uppercase;
+    opacity: 0.95;
+  }
+  &__subtitle {
+  }
+  &__info {
+      background-color: rgba(0, 0, 0, 0.096);
+      padding: 3px;
+    &--header {
+      font-weight: bold;
+      font-size: 12px;
+    }
+    &--data {
+        font-size: 12px;
+        padding-left: 3px;
+    }
+  }
+  &__picture {
+  }
+}

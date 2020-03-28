@@ -1,0 +1,33 @@
+<mat-list-item class="resumed-starship">
+    <img matListAvatar class="resumed-starship__picture" src="{{starship.picture}}" alt="{{starship.name}}">
+
+    <div mat-line><span class="resumed-starship__title">{{starship.name}}</span> </div>
+    <div mat-line class="resumed-starship__subtitle"><b>Model:</b> {{starship.model}}</div>
+    <div mat-line class=""><b>Class:</b> {{starship.starship_class}}</div>
+    <div mat-line>
+        <div class="row resumed-starship__info">
+            <div class="col-md-12 col-lg-6" >
+                <span class="resumed-starship__info--header">Manufacturer:</span>
+                <span class="resumed-starship__info--data">{{starship.manufacturer}}</span>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6">
+                <span class="resumed-starship__info--header">Length:</span>
+                <span class="resumed-starship__info--data">{{starship.length}}</span>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-3">
+                <span class="resumed-starship__info--header">Atmosphering speed:</span>
+                <span class="resumed-starship__info--data">{{starship.max_atmosphering_speed}}</span>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-3">
+                <span class="resumed-starship__info--header">crew:</span>
+                <span class="resumed-starship__info--data">{{starship.crew}}</span>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-3">
+                <span class="resumed-starship__info--header">passengers:</span>
+                <span class="resumed-starship__info--data">{{starship.passengers}}</span>
+            </div>
+
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+</mat-list-item>
