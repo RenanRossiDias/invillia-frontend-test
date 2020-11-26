@@ -1,0 +1,8 @@
+.character{
+    &__list{
+        max-height: 40vh;
+        min-height: 300px;
+        overflow-y: scroll;
+        text-decoration: none;
+    }
+}

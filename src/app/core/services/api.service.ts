@@ -14,7 +14,7 @@ import { ToastrService } from 'ngx-toastr';
 export class ApiService {
  
   private _endpoints = {
-    swapi: 'https://swapi.co/api/'
+    swapi: 'https://swapi.dev/api/'
   }
   
   get endpoints(){
