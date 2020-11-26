@@ -6,4 +6,10 @@
     &__picture{
         background-size: cover;
     }
+    &__info-container{
+
+        max-height: 40vh;
+        min-height: 300px;
+        text-decoration: none;
+    }
 }
