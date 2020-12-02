@@ -48,7 +48,6 @@ import { NotFoundComponent } from './modules/not-found/not-found/not-found.compo
 import { ResumedStarshipInfoComponent } from './modules/shared/resumed-starship-info/resumed-starship-info.component';
 import { SwaloaderComponent } from './modules/shared/swaloader/swaloader.component';
 import { SwaskyComponent } from './modules/shared/swasky/swasky.component';
-import { MainTitleComponent } from './modules/shared/main-title/main-title.component';
 
 @NgModule({
   declarations: [
@@ -61,8 +60,7 @@ import { MainTitleComponent } from './modules/shared/main-title/main-title.compo
     NotFoundComponent,
     ResumedStarshipInfoComponent,
     SwaloaderComponent,
-    SwaskyComponent,
-    MainTitleComponent
+    SwaskyComponent
   ],
   imports: [
     RouterModule,
